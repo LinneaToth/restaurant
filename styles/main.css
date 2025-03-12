@@ -1,7 +1,14 @@
 :root {
-    --main-bg-color: rgba(13, 7, 7, 0.8);
+    --main-bg-color: rgba(13, 7, 7, 0.9);
+    --secondary-bg-color: #301c09;
+    --tertiary-bg-color: rgba(71, 71, 71, 0.8);
     --main-text-color: #f4e5db;
     --gap-width: 0.5rem;
+    --font-size1: 0.8rem;
+    --font-size2: 1rem;
+    --font-size3: 1.4rem;
+
+
 }
 
 * {
@@ -25,6 +32,22 @@ a {
     line-height: 1.7;
 }
 
+button {
+    background-color: var(--secondary-bg-color);
+    padding: var(--gap-width);
+    border-radius: var(--gap-width);
+    font-family: "Quicksand", sans-serif;
+    cursor: pointer;
+    font-size: var(--font-size2);
+    margin: calc(var(--gap-width) * 3) 0;
+}
+
+button:hover {}
+
+button:active {
+    transform: scale(0.95);
+}
+
 h1,
 h2,
 h3,
@@ -35,7 +58,6 @@ h4 {
 }
 
 body {
-    background-image: url("../img/bg_plated_food.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     display: grid;
@@ -43,6 +65,25 @@ body {
     /*shorthand for grid rows and columns*/
     height: 100vh;
 }
+
+/*different backgrounds for different pages*/
+
+body#index {
+    background-image: url("../img/bg_plated_food.jpg");
+}
+
+body#lunch {
+    background-image: url("../img/bg_lunch.jpg");
+}
+
+body#menu {
+    background-image: url("../img/bg_fire.jpg");
+}
+
+body#reservations {
+    background-image: url("../img/bg-ambience.jpg");
+}
+
 
 #top-header {
     grid-column: 2 / span 4;
@@ -71,19 +112,25 @@ nav {
     align-items: center;
     width: 100%;
     height: 100%;
+
 }
 
 #nav-list li {
     display: block;
     font-family: "Quicksand", sans-serif;
+    padding: var(--gap-width)
 }
 
-nav .logo {
+#nav-list li.active {
+    background-color: var(--tertiary-bg-color);
+    border-radius: var(--gap-width);
+}
+
+#logo-link {
     font-size: 2rem;
-    position: relative;
-    top: 10px;
-    vertical-align: middle;
+    font-family: "Special Elite", serif;
     margin-left: var(--gap-width);
+    padding-top: 2%;
 }
 
 #title {
@@ -101,16 +148,46 @@ nav .logo {
 
 aside {
     background-color: var(--main-bg-color);
-    margin: var(--gap-width);
-    margin-right: calc(var(--gap-width) * 2);
+    margin: var(--gap-width) 0;
+    /*margin-right: calc(var(--gap-width) * 2);*/
     border-radius: var(--gap-width);
-    padding: calc(var(--gap-width) * 5);
+    padding: calc(var(--gap-width)*3) calc(var(--gap-width) * 5);
+}
+
+.main-box {
+    padding: calc(var(--gap-width)*3) calc(var(--gap-width) * 5);
+    padding-bottom: calc(var(--gap-width) * 10);
+    grid-column: 8 / -2;
+    grid-row: 1 / -1;
+    background-color: var(--main-bg-color);
+    overflow: scroll;
+    scrollbar-width: none;
 }
 
 aside h2 {
     margin-top: calc(var(--gap-width) * 2);
     margin-bottom: calc(var(--gap-width) * 2);
     letter-spacing: 0.2rem;
+}
+
+main h2 {
+    margin-top: calc(var(--gap-width) * 10);
+    letter-spacing: 0.2rem;
+}
+
+main h3 {
+    margin-top: calc(var(--gap-width) * 5);
+    margin-bottom: 0;
+    line-height: 2;
+}
+
+main h4 {
+    margin-top: calc(var(--gap-width) * 3);
+    margin-bottom: 0;
+}
+
+main p {
+    margin-top: calc(var(--gap-width) * 2);
 }
 
 .logo {
@@ -122,7 +199,7 @@ aside h2 {
 
 
 #menu-main {
-    grid-column: 9 / -2;
+    grid-column: 8 / -2;
     grid-row: 1 /3;
     display: flex;
     flex-direction: column;
@@ -130,30 +207,64 @@ aside h2 {
     background-image: url("../img/burger.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    padding-bottom: var(--gap-width);
+    padding-bottom: calc(var(--gap-width) * 2);
 }
 
 .shortcut {
-    align-self: flex-end;
-    margin-top: auto;
+    align-self: flex-start;
     background-color: var(--main-bg-color);
 }
 
 
 #about-us-main {
-    grid-column: 9 / -2;
+    grid-column: 8 / -2;
     grid-row: 3 / -1;
     overflow: scroll;
-    margin-bottom: 0;
+    scrollbar-width: none;
 }
+
+
 
 footer {
     grid-column: 1 / -1;
     grid-row: -1 / -2;
     display: flex;
     align-items: flex-end;
-    justify-content: center;
+    justify-content: left;
     height: 100%;
     padding: 1rem;
+    padding-left: calc(100vw / 12);
     background-image: linear-gradient(rgba(255, 255, 255, 0), var(--main-bg-color));
+}
+
+/*Pace specific css for INDEX */
+#award {
+    filter: opacity(0.8);
+}
+
+/*Page specific css for LUNCH: */
+#detailed-lunch-info {
+    font-style: italic;
+
+}
+
+/*Pace specific css for MENU */
+.dish-info {
+    font-size: var(--font-size1);
+    padding: 0;
+    margin: 0;
+}
+
+.dish-article {
+    padding-bottom: calc(var(--gap-width) * 3);
+}
+
+#buttonbox {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+#buttonbox button {
+    width: 30%;
 }

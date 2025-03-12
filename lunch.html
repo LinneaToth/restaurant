@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lunch offers at RÖK</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/menu.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Special+Elite&display=swap"
+        rel="stylesheet">
+
+    <script src="./script/mainScript.js" defer></script>
+    <script src="./script/foodProcessor.js" defer></script>
+</head>
+
+<body id="lunch">
+
+    <header id="top-header">
+
+    </header>
+
+
+    <main class="main-box">
+        <h2>Lunch at RÖK</h2>
+        <article class="weekday-lunch">
+            <h3 id="weekday">Monday</h3>
+            <article class="lunch-dish">
+                <!--Today's lunch offer will be inserted here through script-->
+            </article>
+            <button id="detailed-lunch-info-button">Lunch details</button>
+            <article id="detailed-lunch-info" style="display:none">
+                <p>Lunch offers are available on non-holiday weekdays, Monday through Friday</p>
+                <p>Serving hours: 11:00 - 14:00</p>
+                <p>Pricing: The dish on offer is always 10% off the regular menu</p>
+                <p>Water and soft drinks are included in the price</p>
+                <p>Complement your lunch with freshly brewed coffee and fika for an additional 25 sek</p>
+            </article>
+
+    </main>
+
+
+    <header id="title">
+        <h1>Lunch</h1>
+    </header>
+    <!-- according to MDN, it's fine to have several header tags on one page (see https://www.w3schools.com/html/html5_semantic_elements.asp below "HTML <header> Element") -->
+
+    <footer>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+[
+  [
+    "Smoked Beet Tartare",
+    "Fire-kissed beets, horseradish oat cream, crispy rye, and pickled shallots.",
+    "starter",
+    ["dairy", "gluten"],
+    ["vegan"],
+    -1,
+    125
+  ],
+  [
+    "Charred Bone Marrow",
+    "Grilled marrow with sea salt, burnt onion relish, and sourdough toast.",
+    "starter",
+    ["gluten"],
+    [],
+    -1,
+    149
+  ],
+  [
+    "Flamed Mackerel Crudo",
+    "Lightly torched Skälderviken mackerel, dill oil, fermented radish, and lemon ash.",
+    "starter",
+    [],
+    [],
+    4,
+    149
+  ],
+  [
+    "Ember-Grilled Ribeye",
+    "Dry-aged local beef, smoked butter, charred greens, and fire-roasted garlic sauce.",
+    "main",
+    ["dairy"],
+    [],
+    0,
+    239
+  ],
+  [
+    "Rögle-Pucken",
+    "Our award winning burger! A bold tribute to Ängelholm's hockey legacy, this fire-grilled smash burger features dry-aged beef, smoked cheddar, ember-roasted onions, pickled mustard seeds, and our signature black garlic aioli, all stacked on a butter-toasted brioche bun. Served with crispy duck-fat fries and smoked tomato ketchup.",
+    "main",
+    ["dairy", "gluten"],
+    [],
+    1,
+    209
+  ],
+  [
+    "Charred Cauliflower & Fermented Barley",
+    "Fire-roasted cauliflower, smoked almond cream, fermented barley, and crispy kale.",
+    "main",
+    ["dairy", "gluten"],
+    ["vegetarian"],
+    2,
+    198
+  ],
+  [
+    "Wood-Fired Cod Loin",
+    "Butter-basted cod, grilled fennel, seaweed emulsion, and smoked mussel broth.",
+    "main",
+    ["dairy", "shellfish"],
+    ["vegetarian"],
+    3,
+    229
+  ],
+  [
+    "Grilled Apple & Thyme Crumble",
+    "Smoked apples, oat crumble, and rosemary-infused custard.",
+    "dessert",
+    ["gluten"],
+    ["vegan"],
+    0,
+    115
+  ],
+  [
+    " Flame-Torched Chocolate Ganache ",
+    "Dark chocolate, smoked sea salt, burnt caramel, and hazelnut crumble.",
+    "dessert",
+    ["nuts"],
+    ["vegetarian"],
+    0,
+    125
+  ]
+]

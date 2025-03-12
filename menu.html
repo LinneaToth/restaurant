@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/menu.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Special+Elite&display=swap"
+        rel="stylesheet">
+
+    <script src="./script/mainScript.js" defer></script>
+    <script src="./script/foodProcessor.js" defer></script>
+</head>
+
+<body id="menu">
+
+    <header id="top-header">
+
+    </header>
+
+
+    <main class="main-box">
+        <h2>RÖK - Menu</h2>
+        <div id="buttonbox">
+            <button id="starters-button">Starter</button>
+            <button id="main-button">Main</button>
+            <button id="dessert-button">Dessert</button>
+        </div>
+        <section id="starter-section" style="display:none">
+            <h3>Starters</h3>
+            <!-- the script will put starter dishes here -->
+        </section>
+        <section id="main-section" style="display:none">
+            <h3>Main courses</h3>
+            <!-- the script will put main dishes here -->
+        </section>
+        <section id="dessert-section" style="display:none">
+            <h3>Desserts</h3>
+            <!-- the script will put desserts here -->
+        </section>
+    </main>
+
+
+    <header id="title">
+        <h1>Menu</h1>
+    </header>
+    <!-- according to MDN, it's fine to have several header tags on one page (see https://www.w3schools.com/html/html5_semantic_elements.asp below "HTML <header> Element") -->
+
+    <footer>
+        <span>copyright RÖK 2025 no rights reserved</span>
+    </footer>
+
+</body>
+
+</html>
