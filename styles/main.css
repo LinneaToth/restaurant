@@ -6,7 +6,7 @@
     --gap-width: 0.5rem;
     --font-size1: 0.8rem;
     --font-size2: 1rem;
-    --font-size3: 1.4rem;
+    --font-size3: 1.2rem;
 }
 
 * {
@@ -58,10 +58,11 @@ h4 {
 body {
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     display: grid;
     grid-template: 1fr repeat(3, 2fr) 1fr / repeat(12, 1fr);
     /*shorthand for grid rows and columns*/
-    height: 100vh;
+    min-height: 100vh;
 }
 
 /*different backgrounds for different pages*/
@@ -147,7 +148,6 @@ nav {
 aside {
     background-color: var(--main-bg-color);
     margin: var(--gap-width) 0;
-    /*margin-right: calc(var(--gap-width) * 2);*/
     border-radius: var(--gap-width);
     padding: calc(var(--gap-width)*3) calc(var(--gap-width) * 5);
 }
@@ -362,4 +362,88 @@ input:focus,
 #error-box ul li {
     text-decoration: none;
     font-weight: normal;
+}
+
+
+
+@media only screen and (max-width: 1100px) {
+
+    body {
+        grid-template: 8rem 6rem 1fr/2fr 4fr 2fr;
+        min-height: 100vh;
+    }
+
+    #top-header {
+        grid-column: 2 / span 1;
+        grid-row: 2 / span 1;
+        position: sticky;
+        top: 0;
+        min-width: 380px;
+        font-size: var(--font-size3);
+    }
+
+    footer {
+        display: none;
+    }
+
+    #title {
+        grid-column: 2/ span 1;
+        grid-row: 1 / span 1;
+        margin-top: 5rem;
+    }
+
+    #title h1 {
+        font-size: 6rem;
+        line-height: 3rem;
+    }
+
+
+    .main-box {
+        grid-column: 2/ span 1;
+        grid-row: 3 / span 1;
+        overflow: visible;
+        margin: var(--gap-width) 0;
+        border-radius: var(--gap-width);
+        padding: calc(var(--gap-width)*3) calc(var(--gap-width) * 5);
+    }
+
+    .main-box h2 {
+        margin-top: 2rem;
+    }
+
+
+    /* index.html */
+    #about-us-main {
+        grid-column: 2/ span 1;
+        grid-row: 3 / span 1;
+        overflow: visible;
+    }
+
+    #menu-main {
+        display: none;
+    }
+
+    /*menu.html*/
+    /* #buttonbox {
+        position: sticky;
+        top: 48px;
+        background-color: var(--main-bg-color);
+        border-radius: 0 0 var(--gap-width) var(--gap-width);
+    } */
+}
+
+@media only screen and (max-width: 750px) {
+
+    body {
+        grid-template: 8rem 6rem 1fr/1fr 7fr 1fr;
+        min-height: 100vh;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+
+    body {
+        grid-template: 8rem 6rem 1fr/0.5fr 6fr 0.5fr;
+        min-height: 100vh;
+    }
 }

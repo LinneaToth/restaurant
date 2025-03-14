@@ -31,6 +31,7 @@ const menuItemCreator = function (destinations) {
 //Declaration of elements, and assignment of initial classes
 const topHeader = document.querySelector("#top-header");
 const nav = document.createElement("nav");
+nav.id = "navigation_bar"
 const menuIcon = document.createElement("i");
 
 const logoLink = document.createElement("a");
