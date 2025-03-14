@@ -18,7 +18,7 @@ const menuItemCreator = function (destinations) {
         const menuItem = document.createElement("li");
         const anchor = document.createElement("a");
         anchor.href = destination;
-        anchor.innerText = "." + destination.substring(destination.lastIndexOf("/") + 1, destination.lastIndexOf("."));
+        anchor.innerText = destination.substring(destination.lastIndexOf("/") + 1, destination.lastIndexOf("."));
         menuItem.appendChild(anchor);
         navList.appendChild(menuItem);
         if (destination === getCurrentHTML()) {
@@ -40,7 +40,7 @@ logoLink.id = "logo-link";
 const navList = document.createElement("ul");
 navList.id = "nav-list";
 navList.classList.add("nav-list")
-const navURLs = ["/lunch.html", "/menu.html", "/reservations.html"];
+const navURLs = ["./lunch.html", "./menu.html", "./reservations.html"];
 const restName = "RÖK";
 
 //calling the above function to create the menu items
