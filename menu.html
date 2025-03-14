@@ -15,8 +15,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Special+Elite&display=swap"
         rel="stylesheet">
 
-    <script src="./script/mainScript.js" defer></script>
-    <script src="./script/foodProcessor.js" defer></script>
+    <script src="script/class_MenuItem.js" defer></script>
+    <script src="script/navMenuScript.js" defer></script>
+    <script src="script/foodProcessor.js" defer></script>
 </head>
 
 <body id="menu">
@@ -32,18 +33,22 @@
             <button id="starters-button">Starter</button>
             <button id="main-button">Main</button>
             <button id="dessert-button">Dessert</button>
+            <button id="shopping-button"><i class="fa-solid fa-cart-shopping"></i></button>
         </div>
         <section id="starter-section" style="display:none">
             <h3>Starters</h3>
             <!-- the script will put starter dishes here -->
         </section>
-        <section id="main-section" style="display:none">
+        <section id="main-section" style="display:inline">
             <h3>Main courses</h3>
             <!-- the script will put main dishes here -->
         </section>
         <section id="dessert-section" style="display:none">
             <h3>Desserts</h3>
             <!-- the script will put desserts here -->
+        </section>
+        <section id="shopping-cart" style="display:none">
+            <!-- the script will put content of shopping cart here -->
         </section>
     </main>
 
@@ -54,7 +59,6 @@
     <!-- according to MDN, it's fine to have several header tags on one page (see https://www.w3schools.com/html/html5_semantic_elements.asp below "HTML <header> Element") -->
 
     <footer>
-        <span>copyright RÖK 2025 no rights reserved</span>
     </footer>
 
 </body>

@@ -10,7 +10,6 @@ const getCurrentHTML = function () {
     } else {
         return "index.html";
     }
-
 }
 
 //Function going through the different nav URLS, putting them into elements and adding them to navbar
@@ -33,9 +32,7 @@ const menuItemCreator = function (destinations) {
 const topHeader = document.querySelector("#top-header");
 const nav = document.createElement("nav");
 const menuIcon = document.createElement("i");
-const cartIcon = document.createElement("i");
-menuIcon.classList.add("fa-solid", "fa-bars");
-cartIcon.classList.add("fa-solid", "fa-cart-shopping");
+
 const logoLink = document.createElement("a");
 logoLink.href = "/index.html"
 logoLink.innerText = "RÖK";
@@ -51,7 +48,5 @@ menuItemCreator(navURLs);
 nav.appendChild(menuIcon);
 nav.appendChild(logoLink);
 nav.appendChild(navList);
-nav.appendChild(cartIcon);
 topHeader.appendChild(nav);
-
 

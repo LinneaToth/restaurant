@@ -7,8 +7,6 @@
     --font-size1: 0.8rem;
     --font-size2: 1rem;
     --font-size3: 1.4rem;
-
-
 }
 
 * {
@@ -196,8 +194,6 @@ main p {
     font-weight: 400;
 }
 
-
-
 #menu-main {
     grid-column: 8 / -2;
     grid-row: 1 /3;
@@ -215,15 +211,12 @@ main p {
     background-color: var(--main-bg-color);
 }
 
-
 #about-us-main {
     grid-column: 8 / -2;
     grid-row: 3 / -1;
     overflow: scroll;
     scrollbar-width: none;
 }
-
-
 
 footer {
     grid-column: 1 / -1;
@@ -249,22 +242,124 @@ footer {
 }
 
 /*Pace specific css for MENU */
+
+/* Added a grid for each dish item to keep the information in order */
+.dish-article {
+    padding-bottom: calc(var(--gap-width) * 3);
+    display: grid;
+    grid-template-areas:
+        "a a a b"
+        "c c c c"
+        "d d d d"
+        "e e e e"
+        "f f f f"
+}
+
+/* > = child combinator, targets only the second elements that are direct children of the first */
+
+/*heading*/
+.dish-article>h4:nth-of-type(1) {
+    grid-area: a;
+    display: inline-block;
+}
+
+/*add to cart-symbol*/
+.dish-article>h4:nth-of-type(2) {
+    grid-area: b;
+    display: inline-block;
+    text-align: right;
+}
+
+/*dish description*/
+.dish-article>p:nth-of-type(1) {
+    grid-area: c;
+}
+
+/*Dietary requirements*/
 .dish-info {
     font-size: var(--font-size1);
     padding: 0;
     margin: 0;
+    font-style: italic;
+    grid-area: d;
+    width: 100%;
 }
 
-.dish-article {
-    padding-bottom: calc(var(--gap-width) * 3);
+/*allergens*/
+p.dish-info:nth-of-type(2) {
+    grid-area: e;
 }
 
+/*buttons for filtering menu items*/
 #buttonbox {
     display: flex;
     width: 100%;
     justify-content: space-between;
 }
 
-#buttonbox button {
-    width: 30%;
+#starters-button,
+#main-button,
+#dessert-button {
+    width: 27%
+}
+
+#shopping-button {
+    width: 2rem;
+}
+
+/*Page specific css for RESERVATIONS: */
+#res-inq-form {
+    width: 100%;
+    font-family: "Quicksand", sans-serif;
+}
+
+#name,
+#email,
+#phone,
+#free_text {
+    width: 100%;
+    display: block;
+    border-radius: var(--gap-width);
+    background-color: var(--main-text-color);
+    color: var(--secondary-bg-color);
+    padding-left: var(--gap-width);
+    font-family: "Quicksand", sans-serif;
+    margin-top: var(--gap-width);
+    margin-bottom: calc(3 * var(--gap-width));
+}
+
+input:focus,
+#free_text:focus {
+    outline: solid var(--secondary-bg-color);
+}
+
+#free_text {
+    height: 6rem;
+    padding: var(--gap-width);
+    resize: none;
+}
+
+#name,
+#email,
+#phone {
+    height: 2rem;
+}
+
+#error-box {
+    text-align: center;
+}
+
+#error-box ul {
+    font-family: "Quicksand", sans-serif;
+    width: 90%;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+    align-self: center;
+    list-style: none;
+}
+
+#error-box ul li {
+    text-decoration: none;
+    font-weight: normal;
 }

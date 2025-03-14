@@ -32,12 +32,12 @@
     "main",
     ["dairy"],
     [],
-    0,
+    5,
     239
   ],
   [
     "Rögle-Pucken",
-    "Our award winning burger! A bold tribute to Ängelholm's hockey legacy, this fire-grilled smash burger features dry-aged beef, smoked cheddar, ember-roasted onions, pickled mustard seeds, and our signature black garlic aioli, all stacked on a butter-toasted brioche bun. Served with crispy duck-fat fries and smoked tomato ketchup.",
+    "Our award winning burger! This fire-grilled smash burger features dry-aged beef, smoked cheddar, ember-roasted onions, pickled mustard seeds, and our signature black garlic aioli.",
     "main",
     ["dairy", "gluten"],
     [],
@@ -68,7 +68,7 @@
     "dessert",
     ["gluten"],
     ["vegan"],
-    0,
+    -1,
     115
   ],
   [
@@ -77,7 +77,7 @@
     "dessert",
     ["nuts"],
     ["vegetarian"],
-    0,
+    -1,
     125
   ]
 ]

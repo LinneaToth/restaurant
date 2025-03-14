@@ -1,23 +1,21 @@
-"use strict"; //I want js to behave as it is supposed to
+//This script deals with putting menu item on the site. The output depends on whether the active page is Lunch or Menu
 
 document.addEventListener("DOMContentLoaded", async () => {
+    const body = document.querySelector("body");
+    const dishes = []; //will be loaded with instances of MenuItem's 
+    const cart = [];
+    const date = new Date();
 
-
+    //Helper function to toggle display
     const toggleDisplay = function (element) {
         if (element.style.display === "none") {
             element.style.display = "inline";
-            console.log = "hej";
         } else {
             element.style.display = "none";
-            console.log = "hej";
         }
     }
 
-
-    const body = document.querySelector("body");
-    const dishes = []; //will be loaded with instances of MenuItem's 
-    const date = new Date();
-
+    //Returns what day of the week it is today
     const weekdayName = function () {
         const weekdayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         let weekday = weekdayNames[date.getDay()];
@@ -25,40 +23,58 @@ document.addEventListener("DOMContentLoaded", async () => {
         return weekday;
     }
 
-    class MenuItem { //will result in objects with certain readable values
-        constructor(dishName, dishDescription, dishType, allergens, dietaryReq, lunchIndex, price) {
-            this.dishName = dishName; //String
-            this.dishDescription = dishDescription; //String
-            this.dishPrice = price;
-            this.dishType = dishType; //String, either starter, main or dessert
-            this.allergens = allergens; //Array with individual strings; dairy, shellfish, gluten and/or nuts (or empty)
-            this.dietaryReq = dietaryReq; //Array with either vegetarian or vegan (or empty)
-            this.lunchIndex = lunchIndex; //Number representing weekday on which this dish is going to be on lunch offer
-            // this.#checkForAllergensEtc(); //Running function to look for allergens, which will be marked as true or false
-            this.#checkLunchOffer(); //Running function to look if this is on lunch offer today, will be marked as true or false
-        }
+    const buildCart = function (cart) {
+        const shoppingSection = document.querySelector("#shopping-cart");
+        shoppingSection.innerHTML = "<h3>Your dishes</h3>"; //empties the section, so the cart isn't added to last rendering of it
+        let lastDish;
+        let quantity = 1;
+        let lastDishQuantityText;
+        let lastDishPriceText;
+        let lastDishPrice;
+        let sumDishes = 0;
 
-        // #checkForAllergensEtc() {
-        //     this.allergenDairy = this.allergens.includes("dairy");
-        //     this.allergenGluten = this.allergens.includes("gluten");
-        //     this.allergenShellfish = this.allergens.includes("shellfish");
-        //     this.allergenNuts = this.allergens.includes("nuts");
-        //     this.vegan = this.dietaryReq.includes("vegan");
-        //     this.vegetarian = this.dietaryReq.includes("vegetarian");
+        cart.sort(function (a, b) { //algorithm found on w3schools array sort doc
+            let x = a.dishName;
+            let y = b.dishName;
+            if (x < y) { return -1; }
+            if (x > y) { return 1; }
+        });
 
-        //     //delete this.allergens; //Don't need duplicate data, original array is deleted
-        //     //delete this.dietaryReq; //Don't need duplicate data, original array is deleted
-        // }
+        for (let j = 0; j < cart.length; j++) {
+            if (lastDish === cart[j]) {
+                quantity++;
+                lastDishQuantityText.innerText = `Amount: ${quantity}`;
+                lastDishPriceText.innerText = `Price: ${quantity * lastDishPrice} sek (${lastDishPrice} sek per serving)`;
+                sumDishes += cart[j].dishPrice;
+            } else {
+                quantity = 1;
+                const dishHeading = document.createElement("h4");
+                dishHeading.innerText = cart[j].dishName;
+                const quantityText = document.createElement("p");
+                const priceText = document.createElement("p");
+                quantityText.innerText = `Amount: ${quantity}`;
+                lastDishPrice = cart[j].dishPrice * quantity;
 
-        #checkLunchOffer() {
-            const date = new Date();
-            const weekdayNumber = date.getDay();
-            this.isLunchOffer = (weekdayNumber === this.lunchIndex); //Check if there is a match between today and the day it's going to be on offer. 
-            if (this.isLunchOffer) {
-                this.dishPriceLunch = Math.floor(this.dishPrice * 0.9);
+                priceText.innerText = `Price: ${lastDishPrice}`;
+
+                shoppingSection.appendChild(dishHeading);
+                shoppingSection.appendChild(quantityText);
+                shoppingSection.appendChild(priceText);
+                lastDish = cart[j];
+                sumDishes += cart[j].dishPrice;
+                console.log(sumDishes);
+                lastDishPriceText = priceText;
+                lastDishQuantityText = quantityText;
             }
         }
+
+        //Add sum to the page
+        const sumHeading = document.createElement("h4");
+        sumHeading.innerText = `Total cost: ${sumDishes} sek`
+        shoppingSection.appendChild(sumHeading);
     }
+
+
 
     async function getFoodData() { //function that gets data with dishes from json-file
         try {
@@ -81,7 +97,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     }
 
-
+    //Function putting the lunch page content together and in place
     const buildLunchSite = async function () {
         if (body.id != "lunch") {
             return;
@@ -99,20 +115,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             weekdayHeading.innerText = weekdayName() + " deal:";
 
-            // lunchDetailsBtn.addEventListener("click", () => {
-            //     if (detailedLunchInfo.style.display === "none") {
-            //         detailedLunchInfo.style.display = "block";
-            //     } else {
-            //         detailedLunchInfo.style.display = "none";
-            //     }
-            // })
-
             lunchDetailsBtn.addEventListener("click", () => {
                 toggleDisplay(detailedLunchInfo)
             });
 
-
-            if (date.getDay() > 0 && date.getDay() < 5) {
+            if (date.getDay() > 0 && date.getDay() < 6) {
                 for (let dish of dishes) {
                     if (dish.isLunchOffer) {
                         lunchDishHeading.innerText = dish.dishName;
@@ -127,61 +134,80 @@ document.addEventListener("DOMContentLoaded", async () => {
                 weekdayHeading.innerText = "Happy " + weekdayName() + "!  Welcome back for lunch deals offered from Monday through Friday!";
             }
         }
-
         catch (error) {
             console.log(error);
         }
-
     }
 
+    //Function putting the menu page content together and in place
     const buildMenuSite = async function () {
         if (body.id != "menu") {
             return;
         }
         try {
-            const mainContainer = document.querySelector(".main-box");
             const starterSection = document.querySelector("#starter-section");
             const mainSection = document.querySelector("#main-section");
             const dessertSection = document.querySelector("#dessert-section");
+            const shoppingSection = document.querySelector("#shopping-cart");
             const startersBtn = document.querySelector("#starters-button")
             const mainBtn = document.querySelector("#main-button")
             const dessertBtn = document.querySelector("#dessert-button")
+            const cartBtn = document.querySelector("#shopping-button")
 
-
-            const toggleSections = function (activeSection, otherSection1, otherSection2) {
+            //Functionality for filtering menu items per category
+            const toggleSections = function (activeSection, otherSection1, otherSection2, otherSection3) {
                 if (otherSection1.style.display != "none") {
                     toggleDisplay(otherSection1)
                 };
                 if (otherSection2.style.display != "none") {
                     toggleDisplay(otherSection2)
                 };
-                toggleDisplay(activeSection)
+                if (otherSection3.style.display != "none") {
+                    toggleDisplay(otherSection3)
+                };
+                if (activeSection.style.display === "none") {
+                    toggleDisplay(activeSection)
+                }
             }
 
             startersBtn.addEventListener("click", () => {
-                toggleSections(starterSection, mainSection, dessertSection);
+                toggleSections(starterSection, mainSection, dessertSection, shoppingSection);
             });
 
             mainBtn.addEventListener("click", () => {
-                toggleSections(mainSection, starterSection, dessertSection);
+                toggleSections(mainSection, starterSection, dessertSection, shoppingSection);
             });
 
             dessertBtn.addEventListener("click", () => {
-                toggleSections(dessertSection, mainSection, starterSection);
+                toggleSections(dessertSection, mainSection, starterSection, shoppingSection);
             });
 
+            cartBtn.addEventListener("click", () => {
+                toggleSections(shoppingSection, dessertSection, mainSection, starterSection);
+                buildCart(cart);
+            });
 
+            //Looping through the dishes, putting them on the site
+            let dishCounter = 0;
             for (let dish of dishes) {
                 const dishArticle = document.createElement("article");
                 dishArticle.classList.add("dish-article");
+
                 const dishHeading = document.createElement("h4");
                 dishHeading.innerText = dish.dishName;
+
+                const dishPrice = document.createElement("h4");
+                const cartIcon = document.createElement("i");
+                cartIcon.classList.add("fa-solid", "fa-cart-plus");
+                dishPrice.innerText = dish.dishPrice + " ";
+                dishPrice.appendChild(cartIcon);
 
                 const dishDescription = document.createElement("p");
                 dishDescription.innerText = dish.dishDescription;
 
 
                 dishArticle.appendChild(dishHeading);
+                dishArticle.appendChild(dishPrice);
                 dishArticle.appendChild(dishDescription);
 
 
@@ -209,17 +235,23 @@ document.addEventListener("DOMContentLoaded", async () => {
                     case "dessert":
                         dessertSection.appendChild(dishArticle);
                 }
+
+                cartIcon.addEventListener("click", () => {
+                    cart.push(dish); //Adds the dish to the cart
+                    console.log(cart);
+                })
+
             }
         }
-
         catch (error) {
             console.log(error.message);
         }
     }
 
 
-    await createDishes();
-    await buildLunchSite();
-    await buildMenuSite();
+    await createDishes(); //Needed everywhere there is a mention of food :)
+    await buildLunchSite(); //Will only run through the code if on lunch page
+    await buildMenuSite(); //Will only run through the code if on menu page
+
 
 })

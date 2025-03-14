@@ -15,7 +15,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Special+Elite&display=swap"
         rel="stylesheet">
 
-    <script src="./script/mainScript.js" defer type="module"></script>
+    <script src="script/navMenuScript.js" defer type="module"></script>
+    <script src="script/formValidation.js" defer type="module"></script>
 </head>
 
 <body id="reservations">
@@ -23,9 +24,22 @@
     <header id="top-header">
 
     </header>
-
-
     <main class="main-box">
+        <h2>Reservations and inquiries</h2>
+        <h3>What can we do for you?</h3>
+
+        <form id="res-inq-form" name="res-inq-form">
+            <textarea id="free_text" placeholder="Please enter your message here.."></textarea>
+            <label for="name">Full name:</label>
+            <input type="text" id="name" name="name" placeholder="Name">
+            <label for="email">E-mail address:</label>
+            <input type="text" id="email" placeholder="E-mail">
+            <label for="phone">Telephone number:</label>
+            <input type="text" id="phone" placeholder="Phone number">
+            <button id="submit-btn">Send</button>
+        </form>
+        <div id="error-box"></div>
+
 
     </main>
 
@@ -33,11 +47,6 @@
     <header id="title">
         <h1>Table</h1>
     </header>
-    <!-- according to MDN, it's fine to have several header tags on one page (see https://www.w3schools.com/html/html5_semantic_elements.asp below "HTML <header> Element") -->
-
-    <footer>
-    </footer>
-
 </body>
 
 </html>
