@@ -34,7 +34,7 @@ const nav = document.createElement("nav");
 const menuIcon = document.createElement("i");
 
 const logoLink = document.createElement("a");
-logoLink.href = "/index.html"
+logoLink.href = "./index.html"
 logoLink.innerText = "RÖK";
 logoLink.id = "logo-link";
 const navList = document.createElement("ul");
