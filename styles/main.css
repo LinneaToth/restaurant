@@ -308,6 +308,10 @@ p.dish-info:nth-of-type(2) {
     width: 2rem;
 }
 
+.fa-cart-plus:active {
+    transform: scale(1.1);
+}
+
 /*Page specific css for RESERVATIONS: */
 #res-inq-form {
     width: 100%;

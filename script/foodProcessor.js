@@ -3,7 +3,7 @@
 document.addEventListener("DOMContentLoaded", async () => {
     const body = document.querySelector("body");
     const dishes = []; //will be loaded with instances of MenuItem's 
-    const cart = [];
+    let cart = [];
     const date = new Date();
 
     //Helper function to toggle display
@@ -23,9 +23,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         return weekday;
     }
 
-    const buildCart = function (cart) {
+    //Function building he scopping cart
+    const buildCart = function (arrayCart) {
         const shoppingSection = document.querySelector("#shopping-cart");
         shoppingSection.innerHTML = "<h3>Your dishes</h3>"; //empties the section, so the cart isn't added to last rendering of it
+
+
         let lastDish;
         let quantity = 1;
         let lastDishQuantityText;
@@ -48,23 +51,41 @@ document.addEventListener("DOMContentLoaded", async () => {
                 sumDishes += cart[j].dishPrice;
             } else {
                 quantity = 1;
+                const dishArticle = document.createElement("article");
+                dishArticle.classList.add("dish-article");
+
+                const dishName = arrayCart[j].dishName;
                 const dishHeading = document.createElement("h4");
-                dishHeading.innerText = cart[j].dishName;
+                dishHeading.innerText = dishName;
+
                 const quantityText = document.createElement("p");
                 const priceText = document.createElement("p");
                 quantityText.innerText = `Amount: ${quantity}`;
-                lastDishPrice = cart[j].dishPrice * quantity;
-
+                lastDishPrice = arrayCart[j].dishPrice * quantity;
                 priceText.innerText = `Price: ${lastDishPrice}`;
+                dishArticle.appendChild(dishHeading);
 
-                shoppingSection.appendChild(dishHeading);
-                shoppingSection.appendChild(quantityText);
-                shoppingSection.appendChild(priceText);
-                lastDish = cart[j];
-                sumDishes += cart[j].dishPrice;
-                console.log(sumDishes);
+                const removeItemH4 = document.createElement("h4");
+                const removeItem = document.createElement("i");
+                removeItem.classList.add("fa-solid", "fa-trash-can");
+
+                removeItemH4.appendChild(removeItem)
+                dishArticle.appendChild(removeItemH4);
+                dishArticle.appendChild(quantityText);
+                dishArticle.appendChild(priceText);
+                shoppingSection.appendChild(dishArticle);
+
+                lastDish = arrayCart[j];
+                sumDishes += arrayCart[j].dishPrice;
                 lastDishPriceText = priceText;
                 lastDishQuantityText = quantityText;
+
+                removeItem.addEventListener("click", () => {
+                    cart = arrayCart.filter((cartItem) => {
+                        return cartItem.dishName !== dishName;
+                    });
+                    buildCart(cart);
+                })
             }
         }
 
@@ -238,7 +259,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
                 cartIcon.addEventListener("click", () => {
                     cart.push(dish); //Adds the dish to the cart
-                    console.log(cart);
                 })
 
             }

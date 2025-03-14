@@ -14,7 +14,7 @@ const validateForm = function () {
     const formPhone = document.forms["res-inq-form"]["phone"].value.trim();
 
     const regExMail = /^[\w.]{1,20}@[\w-]{1,20}\.[a-zA-Z]{2,3}$/;
-    const regExPhone = /^[\+]?[0-9]{0,4}?[0-9]{0,4}[\-]?[0-9]{4,10}$/;
+    const regExPhone = /^[\+]?[0-9]{0,4}?[0-9]{0,4}[\-]?[0-9]{5,10}$/;
     const regExName = /^[a-zA-ZÀ-ÿ]+[a-zA-ZÀ-ÿ\s'-]{0,44}$/;
 
     console.log(regExMail);
