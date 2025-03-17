@@ -17,6 +17,16 @@
     color: var(--main-text-color);
 }
 
+body {
+    background-color: var(--main-bg-color);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: grid;
+    grid-template: 1fr repeat(3, 2fr) 1fr / repeat(12, 1fr);
+    /*shorthand for grid rows and columns*/
+    height: 100vh;
+}
+
 p,
 span {
     font-family: "Quicksand", sans-serif;
@@ -55,14 +65,7 @@ h4 {
     font-style: normal;
 }
 
-body {
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: grid;
-    grid-template: 1fr repeat(3, 2fr) 1fr / repeat(12, 1fr);
-    /*shorthand for grid rows and columns*/
-    height: 100vh;
-}
+
 
 /*different backgrounds for different pages*/
 
