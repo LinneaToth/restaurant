@@ -1,3 +1,5 @@
+//This script will validate the input from the form 
+
 const submitBtn = document.querySelector("#submit-btn");
 
 let ul = null;
@@ -13,12 +15,19 @@ const validateForm = function () {
     const formFreeText = document.forms["res-inq-form"]["free_text"].value;
     const formPhone = document.forms["res-inq-form"]["phone"].value.trim();
 
-    const regExMail = /^[\w.]{1,20}@[\w-]{1,20}\.[a-zA-Z]{2,3}$/;
+    const regExMail = /^[\w.]{1,20}@[\w-]{1,20}\.[a-zA-Z]{2,8}$/;
     const regExPhone = /^[\+]?[0-9]{0,4}?[0-9]{0,4}[\-]?[0-9]{5,10}$/;
     const regExName = /^[a-zA-ZÀ-ÿ]+[a-zA-ZÀ-ÿ\s'-]{0,44}$/;
 
     console.log(regExMail);
     console.log(formEmail.match(regExMail))
+
+    if (!formFreeText || formFreeText.length < 10) {
+        const li = document.createElement("li");
+        li.innerText = "A message for us";
+        ul.appendChild(li);
+        allOk = false;
+    }
 
     if (!formName.match(regExName)) {
         const li = document.createElement("li");
@@ -30,13 +39,6 @@ const validateForm = function () {
     if (!formEmail.match(regExMail)) {
         const li = document.createElement("li");
         li.innerText = "An e-mail address";
-        ul.appendChild(li);
-        allOk = false;
-    }
-
-    if (!formFreeText || formFreeText.length < 10) {
-        const li = document.createElement("li");
-        li.innerText = "A message for us";
         ul.appendChild(li);
         allOk = false;
     }
@@ -55,7 +57,7 @@ const validateForm = function () {
     return allOk;
 }
 
-submitBtn.addEventListener("click", () => {
+submitBtn.addEventListener("click", async function (event) {
     const errorBox = document.querySelector("#error-box");
 
     if (ul) { ul.remove(); };

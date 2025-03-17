@@ -1,12 +1,14 @@
-//This script deals with putting menu item on the site. The output depends on whether the active page is Lunch or Menu
+"use strict";
+
+//This script deals with putting menu item on the site. The output depends on whether the active page is Lunch or Menu.
 
 document.addEventListener("DOMContentLoaded", async () => {
     const body = document.querySelector("body");
-    const dishes = []; //will be loaded with instances of MenuItem's 
-    let cart = [];
-    const date = new Date();
+    const dishes = []; //will be loaded with instances of MenuItem's, representing the menu
+    let cart = []; //will be loaded with items when added by user
 
-    //Helper function to toggle display
+
+    //Helper function to toggle display of DOM elements
     const toggleDisplay = function (element) {
         if (element.style.display === "none") {
             element.style.display = "inline";
@@ -17,6 +19,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     //Returns what day of the week it is today
     const weekdayName = function () {
+        const date = new Date();
         const weekdayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         let weekday = weekdayNames[date.getDay()];
         console.log("Today is " + weekday);
@@ -27,7 +30,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     const buildCart = function (arrayCart) {
         const shoppingSection = document.querySelector("#shopping-cart");
         shoppingSection.innerHTML = "<h3>Your dishes</h3>"; //empties the section, so the cart isn't added to last rendering of it
-
 
         let lastDish;
         let quantity = 1;
@@ -41,6 +43,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             let y = b.dishName;
             if (x < y) { return -1; }
             if (x > y) { return 1; }
+            if (x === y) { return 0; }
         });
 
         for (let j = 0; j < cart.length; j++) {
@@ -120,6 +123,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     //Function putting the lunch page content together and in place
     const buildLunchSite = async function () {
+        const date = new Date();
+
         if (body.id != "lunch") {
             return;
         }
@@ -269,7 +274,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
 
-    await createDishes(); //Needed everywhere there is a mention of food :)
+    await createDishes(); //Needed everywhere there is a mention of menu items :)
     await buildLunchSite(); //Will only run through the code if on lunch page
     await buildMenuSite(); //Will only run through the code if on menu page
 

@@ -271,9 +271,14 @@ footer {
     text-align: right;
 }
 
-/*dish description*/
+/*dish description in cart*/
 .dish-article>p:nth-of-type(1) {
     grid-area: c;
+}
+
+.dish-article>p:nth-of-type(2) {
+    grid-area: d;
+    margin-top: 0;
 }
 
 /*Dietary requirements*/
@@ -301,7 +306,7 @@ p.dish-info:nth-of-type(2) {
 #starters-button,
 #main-button,
 #dessert-button {
-    width: 27%
+    width: 27% cursor: pointer;
 }
 
 #shopping-button {
@@ -310,6 +315,11 @@ p.dish-info:nth-of-type(2) {
 
 .fa-cart-plus:active {
     transform: scale(1.1);
+}
+
+/* all icons I've used from font-awesome have this class. Carts and wastebins.*/
+.fa-solid {
+    cursor: pointer;
 }
 
 /*Page specific css for RESERVATIONS: */

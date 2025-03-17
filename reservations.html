@@ -28,17 +28,17 @@
         <h2>Reservations and inquiries</h2>
         <h3>What can we do for you?</h3>
 
-        <form id="res-inq-form" name="res-inq-form">
-            <textarea id="free_text" placeholder="Please enter your message here.."></textarea>
+        <form id="res-inq-form" name="res-inq-form" method="POST">
+            <textarea id="free_text" placeholder="Please enter your message here.." name="free_text"></textarea>
             <label for="name">Full name:</label>
             <input type="text" id="name" name="name" placeholder="Name">
             <label for="email">E-mail address:</label>
-            <input type="text" id="email" placeholder="E-mail">
+            <input type="text" id="email" placeholder="E-mail" name="email">
             <label for="phone">Telephone number:</label>
             <input type="text" id="phone" placeholder="Phone number">
-            <button id="submit-btn">Send</button>
+            <button id="submit-btn" type="submit">Send</button>
         </form>
-        <div id="error-box"></div>
+
 
 
     </main>
