@@ -309,7 +309,8 @@ p.dish-info:nth-of-type(2) {
 #starters-button,
 #main-button,
 #dessert-button {
-    width: 27% cursor: pointer;
+    width: 27%;
+    cursor: pointer;
 }
 
 #shopping-button {
