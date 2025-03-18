@@ -190,15 +190,15 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             //Functionality for filtering menu items per category
             const toggleSections = function (activeSection, otherSection1, otherSection2, otherSection3) {
-                if (otherSection1.style.display != "none") {
-                    toggleDisplay(otherSection1)
-                };
-                if (otherSection2.style.display != "none") {
-                    toggleDisplay(otherSection2)
-                };
-                if (otherSection3.style.display != "none") {
-                    toggleDisplay(otherSection3)
-                };
+                const argsArray = Array.from(arguments); //adds arguments to array to be looped over
+
+                //Checks if sections that shouldn't be visible are showing, and hides them if so
+                for (let i = 1; i < argsArray.length; i++) {
+                    if (argsArray[i].style.display != "none") {
+                        toggleDisplay(argsArray[i]);
+                    }
+                }
+                // Checks if the wanted section is hidden, and shows it if it is
                 if (activeSection.style.display === "none") {
                     toggleDisplay(activeSection)
                 }
@@ -238,7 +238,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                 const dishDescription = document.createElement("p");
                 dishDescription.innerText = dish.dishDescription;
 
-
                 dishArticle.appendChild(dishHeading);
                 dishArticle.appendChild(dishPrice);
                 dishArticle.appendChild(dishDescription);
@@ -272,7 +271,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                 cartIcon.addEventListener("click", () => {
                     cart.push(dish); //Adds the dish to the cart
                 })
-
             }
         }
         catch (error) {
@@ -280,10 +278,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     }
 
-
-    await createDishes(); //Needed everywhere there is a mention of menu items :)
+    await createDishes(); //Needed everywhere there is a mention of menu items 
     buildLunchSite(); //Will only run through the code if on lunch page
     buildMenuSite(); //Will only run through the code if on menu page
-
 
 })
