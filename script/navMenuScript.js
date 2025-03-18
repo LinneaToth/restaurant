@@ -6,7 +6,8 @@ const getCurrentHTML = function () {
     let path = window.location.pathname;
     //quick-fix to make it work on github pages after subfolder pages was added to the structure
     if (path.includes("restaurant")) {
-        path = path.substring(path.lastIndexOf("restaurant"));
+        path = path.substring(path.lastIndexOf("/"));
+        console.log(path + "path from first if in getCurrentHTML");
     }
     console.log(path);
     if (path != "/") {
