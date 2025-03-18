@@ -35,13 +35,23 @@ nav.id = "navigation_bar"
 const menuIcon = document.createElement("i");
 
 const logoLink = document.createElement("a");
-logoLink.href = "./index.html"
 logoLink.innerText = "RÖK";
 logoLink.id = "logo-link";
 const navList = document.createElement("ul");
 navList.id = "nav-list";
 navList.classList.add("nav-list")
-const navURLs = ["./lunch.html", "./menu.html", "./reservations.html"];
+
+let navURLs = [];
+if (getCurrentHTML() != "/index.html") {
+    console.log(getCurrentHTML())
+    logoLink.href = "../index.html"
+    navURLs = ["./lunch.html", "./menu.html", "./reservations.html"];
+} else if (getCurrentHTML() === "/index.html") {
+    console.log(getCurrentHTML())
+    logoLink.href = "./index.html"
+    navURLs = ["./pages/lunch.html", "./pages/menu.html", "./pages/reservations.html"];
+}
+
 const restName = "RÖK";
 
 //calling the above function to create the menu items

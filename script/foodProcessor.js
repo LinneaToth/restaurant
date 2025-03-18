@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     async function getFoodData() { //function that gets data with dishes from json-file
         try {
-            const response = await fetch("./script/dishes.json");
+            const response = await fetch("../script/dishes.json");
             const dishesData = await response.json();
             return dishesData; //returns an array with all of the dishes
         } catch (error) {
