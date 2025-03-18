@@ -24,12 +24,11 @@ const menuItemCreator = function (destinations) {
         const menuItem = document.createElement("li");
         const anchor = document.createElement("a");
         anchor.href = destination;
-        anchor.innerText = destination.substring(destination.lastIndexOf("/") + 1, destination.lastIndexOf("."));
+        anchor.innerText = destination.substring(destination.lastIndexOf("/") + 1, destination.lastIndexOf(".")); //removes / and .html from the file name and adds it to the navbar
         menuItem.appendChild(anchor);
         navList.appendChild(menuItem);
-        console.log("get current HTML " + getCurrentHTML());
-        console.log("destination " + destination);
-        if (destination === getCurrentHTML()) {
+
+        if (destination.includes(getCurrentHTML())) {
             menuItem.classList.add("active");
         }
     })
