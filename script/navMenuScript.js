@@ -4,6 +4,10 @@
 //Function returning the file name of the page we're currently viewing
 const getCurrentHTML = function () {
     let path = window.location.pathname;
+    //quick-fix to make it work on github pages after subfolder pages was added to the structure
+    if (path.includes("restaurant")) {
+        path = path.substring(path.lastIndexOf("restaurant"));
+    }
     console.log(path);
     if (path != "/") {
         return path.substring(path.lastIndexOf("/"));
