@@ -27,6 +27,8 @@ const menuItemCreator = function (destinations) {
         anchor.innerText = destination.substring(destination.lastIndexOf("/") + 1, destination.lastIndexOf("."));
         menuItem.appendChild(anchor);
         navList.appendChild(menuItem);
+        console.log("get current HTML " + getCurrentHTML());
+        console.log("destination " + destination);
         if (destination === getCurrentHTML()) {
             menuItem.classList.add("active");
         }
