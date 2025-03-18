@@ -4,12 +4,13 @@
 //Function returning the file name of the page we're currently viewing
 const getCurrentHTML = function () {
     let path = window.location.pathname;
+
     //quick-fix to make it work on github pages after subfolder pages was added to the structure
     if (path.includes("restaurant")) {
         path = path.substring(path.lastIndexOf("/"));
-        console.log(path + "path from first if in getCurrentHTML");
     }
-    console.log(path);
+    
+    //Logic returning the current page name, even if index.html is not explicitly stated
     if (path != "/") {
         return path.substring(path.lastIndexOf("/"));
     } else {
@@ -48,11 +49,9 @@ navList.classList.add("nav-list")
 //some logic for pointing the nav links in the correct direction
 let navURLs;
 if (!getCurrentHTML().includes("index")) {
-    console.log(getCurrentHTML());
     logoLink.href = "../index.html"
     navURLs = ["./lunch.html", "./menu.html", "./reservations.html"];
 } else {
-    console.log(getCurrentHTML());
     logoLink.href = "./index.html"
     navURLs = ["./pages/lunch.html", "./pages/menu.html", "./pages/reservations.html"];
 }
