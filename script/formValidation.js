@@ -1,8 +1,8 @@
+"use strict";
+
 //This script will validate the input from the form 
 
-const submitBtn = document.querySelector("#submit-btn");
-
-let ul = null;
+let ul = null; //List with errors is empty from the beginning
 
 const validateForm = function () {
     let allOk = true;
@@ -15,13 +15,12 @@ const validateForm = function () {
     const formFreeText = document.forms["res-inq-form"]["free_text"].value;
     const formPhone = document.forms["res-inq-form"]["phone"].value.trim();
 
+    //Tried to create a formatting criteria for each input, using regex
     const regExMail = /^[\w.]{1,20}@[\w-]{1,20}\.[a-zA-Z]{2,8}$/;
     const regExPhone = /^[\+]?[0-9]{0,4}?[0-9]{0,4}[\-]?[0-9]{5,10}$/;
     const regExName = /^[a-zA-ZÀ-ÿ]+[a-zA-ZÀ-ÿ\s'-]{0,44}$/;
 
-    console.log(regExMail);
-    console.log(formEmail.match(regExMail))
-
+    //Checking each field, adding the missing info to the list if something is off
     if (!formFreeText || formFreeText.length < 10) {
         const li = document.createElement("li");
         li.innerText = "A message for us";
@@ -50,6 +49,7 @@ const validateForm = function () {
         allOk = false;
     }
 
+    //If all wasn't okay in the check, the info will be added to a list below the form
     if (!allOk) {
         errorBox.appendChild(ul);
     }
@@ -57,15 +57,17 @@ const validateForm = function () {
     return allOk;
 }
 
-submitBtn.addEventListener("click", async function (event) {
+const submitBtn = document.querySelector("#submit-btn");
+
+submitBtn.addEventListener("click", (event) => {
     const errorBox = document.querySelector("#error-box");
 
-    if (ul) { ul.remove(); };
+    if (ul) {
+        ul.remove();
+    };
 
     if (!validateForm()) {
         event.preventDefault(); //prevents default submission of form
-        console.log("Submission prevented");
-
     } else {
         confirm("Thank you for reaching out to us! You will hear from us soon!");
     };
