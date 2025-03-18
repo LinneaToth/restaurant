@@ -4,6 +4,7 @@
 //Function returning the file name of the page we're currently viewing
 const getCurrentHTML = function () {
     let path = window.location.pathname;
+    console.log(path);
     if (path != "/") {
         return path.substring(path.lastIndexOf("/"));
     } else {
@@ -42,9 +43,11 @@ navList.classList.add("nav-list")
 //some logic for pointing the nav links in the correct direction
 let navURLs;
 if (!getCurrentHTML().includes("index")) {
+    console.log(getCurrentHTML());
     logoLink.href = "../index.html"
     navURLs = ["./lunch.html", "./menu.html", "./reservations.html"];
 } else {
+    console.log(getCurrentHTML());
     logoLink.href = "./index.html"
     navURLs = ["./pages/lunch.html", "./pages/menu.html", "./pages/reservations.html"];
 }
