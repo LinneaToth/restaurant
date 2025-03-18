@@ -1,7 +1,6 @@
-"use strict"; //I want js to behave as it is supposed to.. 
+"use strict";
 
 //NAVIGATION 
-
 //Function returning the file name of the page we're currently viewing
 const getCurrentHTML = function () {
     let path = window.location.pathname;
@@ -33,7 +32,6 @@ const topHeader = document.querySelector("#top-header");
 const nav = document.createElement("nav");
 nav.id = "navigation_bar"
 const menuIcon = document.createElement("i");
-
 const logoLink = document.createElement("a");
 logoLink.innerText = "RÖK";
 logoLink.id = "logo-link";
@@ -41,18 +39,15 @@ const navList = document.createElement("ul");
 navList.id = "nav-list";
 navList.classList.add("nav-list")
 
-let navURLs = [];
-if (getCurrentHTML() != "/index.html") {
-    console.log(getCurrentHTML())
+//some logic for pointing the nav links in the correct direction
+let navURLs;
+if (!getCurrentHTML().includes("index")) {
     logoLink.href = "../index.html"
     navURLs = ["./lunch.html", "./menu.html", "./reservations.html"];
-} else if (getCurrentHTML() === "/index.html") {
-    console.log(getCurrentHTML())
+} else {
     logoLink.href = "./index.html"
     navURLs = ["./pages/lunch.html", "./pages/menu.html", "./pages/reservations.html"];
 }
-
-const restName = "RÖK";
 
 //calling the above function to create the menu items
 menuItemCreator(navURLs);
