@@ -2,6 +2,8 @@
 
 ![site layout](https://github.com/LinneaToth/restaurant/blob/main/img/preview.png)
 
+[LIVE PAGE](https://linneatoth.github.io/restaurant/)
+
 ## Custom design, hand written code
 
 Restaurant site made for a school assignment, during first semester of front end / web dev education. Built with HTML, CSS and JS, featuring dynamic content and interactivity.
