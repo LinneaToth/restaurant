@@ -79,3 +79,16 @@ With increasing complexity in the code, I have learned the importance of impleme
 > - Implement a dark mode/light mode toggle. 
 > - Add animations for menu transitions or hover effects. 
 > - Create a simple contact form with validation via JavaScript.
+
+## Image credits
+[Plated food background](https://pixabay.com/sv/photos/jul-tapeter-tallrik-mat-f%C3%B6rr%C3%A4tter-2009590/)
+
+[Fire background](https://unsplash.com/photos/tilt-shift-lens-photography-of-fire-ember-GFgWx3o8bTI)
+
+[Steak background](https://pixabay.com/photos/beef-meat-steak-food-nutrition-7867701/)
+
+[Laid table](https://unsplash.com/photos/white-ceramic-plates-0hAdietsUrE)
+
+[Burger](https://pixabay.com/sv/photos/mat-hamburgare-sm%C3%B6rg%C3%A5s-pub-7595910/)
+
+
