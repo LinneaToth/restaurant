@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             const lunchDetailsBtn = document.querySelector("#detailed-lunch-info-button")
             const detailedLunchInfo = document.querySelector("#detailed-lunch-info");
             const dishContainer = document.querySelector(".lunch-dish");
-            const lunchDishHeading = document.createElement("h4");
+            const lunchDishHeading = document.querySelector("#lunch-dish-heading")
             const lunchDishDescription = document.createElement("p");
             lunchDishDescription.classList.add("lunch-dish-description");
             const lunchDishPrice = document.createElement("p");

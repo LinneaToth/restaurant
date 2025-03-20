@@ -14,21 +14,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Special+Elite&display=swap"
         rel="stylesheet">
 
-    <script src="../script/navMenuScript.js" defer type="module"></script>
-    <script src="../script/formValidation.js" defer type="module"></script>
+    <script src="../script/navMenuScript.js" defer></script>
+    <script src="../script/formValidation.js" defer></script>
 </head>
 
 <body id="reservations">
 
     <header id="top-header">
-
+        <!-- The script adds the menu here -->
     </header>
     <main class="main-box">
         <h2>Reservations and inquiries</h2>
         <h3>What can we do for you?</h3>
 
         <form id="res-inq-form" name="res-inq-form">
-            <!-- if I wanted this to work I'd have to define the method and action-->
+            <!-- if I actually wanted this to work I'd have to define method and action-->
             <textarea id="free_text" placeholder="Please enter your message here.." name="free_text"></textarea>
             <label for="name">Full name:</label>
             <input type="text" id="name" name="name" placeholder="Name">
@@ -38,16 +38,15 @@
             <input type="text" id="phone" placeholder="Phone number">
             <button id="submit-btn" type="submit">Send</button>
         </form>
-
-        <div id="error-box"></div>
-
-
+        <div id="error-box">        <!-- The script adds any errors here --></div>
     </main>
-
 
     <header id="title">
         <h1>Table</h1>
     </header>
+    
+    <footer>
+    </footer>
 </body>
 
 </html>
