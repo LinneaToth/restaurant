@@ -10,11 +10,11 @@ Restaurant site made for a school assignment, during first semester of front end
 
 ## Features:
 
-- Responsive design
-- Menu section with dishes read from JSON, categorized and processed with JavaScript
-- Order function: Cart with cost calculation and functionality to remove items
-- W3 validated with no errors
-- Lunch offer depending on day of the week
+- ** Responsive design ** - optimized for all devices
+- ** Dynamic menu ** - dishes are fetched from a JSON file, categorized and processed with JavaScript
+- ** Order functionality ** - includes a cart, cost calculation, and the ability to remove items
+- ** Validation ** - W3C validated with no errors
+- ** Lunch offer ** - dynamic display based on the day of the week
 
 ## Main personal takeaway:
 
