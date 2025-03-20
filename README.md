@@ -2,17 +2,25 @@
 
 ![site layout](https://github.com/LinneaToth/restaurant/blob/main/img/preview.png)
 
+[LIVE PAGE](https://linneatoth.github.io/restaurant/)
+
 ## Custom design, hand written code
 
 Restaurant site made for a school assignment, during first semester of front end / web dev education. Built with HTML, CSS and JS, featuring dynamic content and interactivity.
 
 ## Features:
 
-- Responsive design
-- Menu section with dishes read from JSON, categorized and processed with JavaScript
-- Order function: Cart with cost calculation and functionality to remove items
-- W3 validated with no errors
-- Lunch offer depending on day of the week
+**Responsive design** - optimized for all devices
+
+**Dynamic menu** - dishes are fetched from a JSON file, categorized and processed with JavaScript
+
+**Order functionality** - includes a cart, cost calculation, and the ability to remove items
+
+**Validation** - W3C validated with no errors
+
+**Lunch offer** - dynamic display based on the day of the week
+
+
 
 ## Main personal takeaway:
 
@@ -71,3 +79,16 @@ With increasing complexity in the code, I have learned the importance of impleme
 > - Implement a dark mode/light mode toggle. 
 > - Add animations for menu transitions or hover effects. 
 > - Create a simple contact form with validation via JavaScript.
+
+## Image credits
+[Plated food background](https://pixabay.com/sv/photos/jul-tapeter-tallrik-mat-f%C3%B6rr%C3%A4tter-2009590/)
+
+[Fire background](https://unsplash.com/photos/tilt-shift-lens-photography-of-fire-ember-GFgWx3o8bTI)
+
+[Steak background](https://pixabay.com/photos/beef-meat-steak-food-nutrition-7867701/)
+
+[Laid table](https://unsplash.com/photos/white-ceramic-plates-0hAdietsUrE)
+
+[Burger](https://pixabay.com/sv/photos/mat-hamburgare-sm%C3%B6rg%C3%A5s-pub-7595910/)
+
+
