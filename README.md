@@ -31,35 +31,36 @@ With increasing complexity in the code, I have learned the importance of impleme
 > #### What You Will Do 
 > - Create a homepage with a welcoming and inviting section that presents the restaurant through a detailed description of its concept, history, and food philosophy. 
 > 
-> - Menu section containing three well-organized categories with clear descriptions of each dish: 
+> Menu section containing three well-organized categories with clear descriptions of each dish: 
 > - Starters 
 > - Main Courses 
 > - Desserts 
 > 
-> - Lunch Buffet 
+> Lunch Buffet 
 > - Comprehensive information about the lunch buffet, including that it is served Monday-Friday with details about serving hours and daily special offers. 
 > - Detailed price list for the lunch buffet, including information about optional extras and beverage choices. 
 > 
-> - Price List 
+> Price List 
 > - A complete and well-structured list of current prices for all dishes, including information about allergens and special dietary options. 
 > 
-> - Navigation Menu 
+> Navigation Menu 
 > - Offers smooth and intuitive links to all sections of the website with clear visual feedback. 
 > 
-> - Responsive Design > - Ensures an optimal user experience on all devices, from large computer screens to small mobile phones, with an adaptive layout and readability. 
+> Responsive Design 
+> - Ensures an optimal user experience on all devices, from large computer screens to small mobile phones, with an adaptive layout and readability. 
 > 
-> - Packaging for Delivery 
+> Packaging for Delivery 
 > - You should prepare your application for deployment. You do not need to deliver or deploy it. 
 > 
 > ### Functionality 
-> - HTML: 
+> HTML: 
 > - Structured layout with the right semantic elements. 
 > 
-> - CSS: 
+> CSS: 
 > - Use flexbox and/or grid for layout.
 > - Style menus and content to make them attractive. 
 > 
-> - JavaScript:
+> JavaScript:
 > - Create an interactive menu where users can filter dishes based on category. 
 > - A button to show/hide lunch buffet information. 
 > - A simple calculation of the total cost for ordered dishes. 
